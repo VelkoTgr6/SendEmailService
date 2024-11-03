@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SendEmailService.Data.Model;
 
 namespace SendEmailService.Data
 {
@@ -9,5 +10,7 @@ namespace SendEmailService.Data
             : base(options)
         {
         }
+
+        public DbSet<User> Users { get; set; }
     }
 }
