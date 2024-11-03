@@ -1,7 +1,6 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
 
-
 namespace SendEmailService.Service
 {
     public class EmailService
@@ -11,6 +10,7 @@ namespace SendEmailService.Service
         private readonly string _smtpUser;
         private readonly string _smtpPass;
 
+        // Constructor accepting SMTP settings directly
         public EmailService(string smtpServer, int smtpPort, string smtpUser, string smtpPass)
         {
             _smtpServer = smtpServer;
@@ -23,7 +23,7 @@ namespace SendEmailService.Service
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("EmailServiceTEST", _smtpUser));
-            message.To.Add(new MailboxAddress("emailTESTT",toEmail));
+            message.To.Add(new MailboxAddress("emailTESTT", toEmail));
             message.Subject = subject;
 
             message.Body = new TextPart("plain")

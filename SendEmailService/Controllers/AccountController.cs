@@ -9,7 +9,7 @@ namespace SendEmailService.Controllers
     public class AccountController : Controller
     {
         private readonly EmailService _emailService;
-        private readonly ApplicationDbContext dbContext; // Your database context
+        private readonly ApplicationDbContext dbContext; 
 
         public AccountController(EmailService emailService, ApplicationDbContext _dbContext)
         {
@@ -38,7 +38,7 @@ namespace SendEmailService.Controllers
                     var tempPassword = user.TempPassword;
 
                     // Save the temporary password securely (e.g., hashed in the database)
-                    user.TempPassword = tempPassword; // Assuming you have a TempPassword field
+                    user.TempPassword = tempPassword; 
                     await dbContext.SaveChangesAsync();
 
                     // Send email with temporary password
@@ -52,7 +52,7 @@ namespace SendEmailService.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(nameof(UserLoginModel), "Email not found."); // Optional: inform user email is not registered
+                    ModelState.AddModelError(nameof(UserLoginModel), "Email not found."); 
                 }
             }
 
